@@ -1,0 +1,106 @@
+﻿<link href="../../Content/Menu.css" rel="stylesheet" />
+<nav class="navbar navbar-default IeseRojoImage small">
+    <!-- El logotipo y el icono que despliega el menú se agrupan
+         para mostrarlos mejor en los dispositivos móviles -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">&#9776;</span>
+            <span class="icon-bar" style="background-color:black"></span>
+            <span class="icon-bar" style="background-color:black"></span>
+            <span class="icon-bar" style="background-color:black"></span>
+        </button>
+        <a class="navbar-brand text-white" href="#"> Menu</a>
+    </div>
+
+    <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+         otro elemento que se pueda ocultar al minimizar la barra -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse ">
+        <ul class="nav navbar-nav">
+            <li class="nav-item Active2">
+                <a href="../Administrativo/Menu.html" class="nav-link">&nbsp;<span class="octicon octicon-home"></span> Inicio&nbsp;</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Alumnos &nbsp;</a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li>
+                        <a class="dropdown-item" href="../Alumno/CargaAlumnos.html">&nbsp;Carga de Alumnos&nbsp;</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                   id="listamateria">&nbsp; Docentes&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li><a class="dropdown-item" href="../Docentes/Docentes.html">&nbsp;Modificiacion Docentes&nbsp;</a></li>
+                    <li><a class="dropdown-item" href="../Docentes/CargarDocentes.html">&nbsp;Carga Masiva Docentes&nbsp;</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Usuarios&nbsp;</a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li>
+                        <a class="dropdown-item" href="../Usuario/Usuarios.html">&nbsp;Administrar Usuarios&nbsp;</a>
+                    </li>
+                    <!--<a class="dropdown-item" href="../../Preguntas/GenerarEncuesta.html">&nbsp;Generar Encuentas&nbsp;</a>-->
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Periodos&nbsp;</a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li><a class="dropdown-item" href="../Periodos/Periodo.html">&nbsp;Generar Periodo&nbsp;</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;Preguntas&nbsp;</a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li>
+                        <a class="dropdown-item" href="../Preguntas/Preguntas.html">&nbsp;Carga de Preguntas&nbsp;</a>
+                    </li>
+                    <li> <a class="dropdown-item" href="../Preguntas/GenerarEncuesta.html">&nbsp;Generar Encuestas&nbsp;</a></li>
+                </ul>
+            </li>
+            <!--<li  class="nav-item"><a href="../../Periodos/Periodo.html" class="nav-link">&nbsp;Periodos&nbsp;</a>-->
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                   id="listamateria">&nbsp; Materias&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li>
+                        <a class="dropdown-item" href="../Materias/Materia.html">&nbsp;Modificiacion Materias&nbsp;</a>
+                    </li>
+                    <li> <a class="dropdown-item" href="../Materias/CargaMaterias.html">&nbsp;Carga Masiva Materias&nbsp;</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                   id="listamateria">
+                    &nbsp; Grupos&nbsp;<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="listamateria">
+                    <li><a class="dropdown-item" href="../Grupos/CrearGrupo.html">&nbsp;Crear Grupos&nbsp;</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                   id="listaReportes">&nbsp; Reportes&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="listaReportes">
+                    <li>
+                        <a class="dropdown-item" href="../Reportes/Reportes.html">&nbsp;Reportes Docentes&nbsp;</a>
+                    </li>
+                    <li><a class="dropdown-item" href="../Reportes/ReporteServicios.html">&nbsp;Reportes Servicios&nbsp;</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="../Usuario/Perfil.html" class="nav-link">&nbsp;&nbsp;<span class="octicon octicon-shield"></span>&nbsp;Perfil &nbsp;&nbsp;</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" id="btnSalir"><span class="octicon octicon-x"></span> Salir &nbsp;&nbsp;</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<script type="text/javascript">
+    $('#btnSalir').on('click', function () {
+        sessionStorage.clear();
+        window.open = "../../Index.html", "_parent";
+  });
+</script>

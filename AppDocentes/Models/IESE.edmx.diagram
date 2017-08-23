@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3722bd8c29d642d8ab9461774d0d0cc8" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="IeseEncuestaModel.Alumno" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.AlumnoMateria" Width="1.5" PointX="5.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.AlumnoPrueba" Width="1.5" PointX="8.25" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.AlumnoPruebaServicio" Width="1.5" PointX="8.25" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Carrera" Width="1.5" PointX="6" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Categorias" Width="1.5" PointX="3" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.ComentarioDocente" Width="1.5" PointX="10.5" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.ComentarioServicios" Width="1.5" PointX="11.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.ConfiguracionEncuesta" Width="1.5" PointX="8.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.ConfiguracionPregunta" Width="1.5" PointX="5.25" PointY="39.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Docente" Width="1.5" PointX="3" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.DocenteMateria" Width="1.5" PointX="11.25" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Encuesta" Width="1.5" PointX="10.5" PointY="42.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.HistorialAlumno" Width="1.5" PointX="5.25" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Materia" Width="1.5" PointX="8.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.OpcionPregunta" Width="1.5" PointX="11.25" PointY="46.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Periodo" Width="1.5" PointX="3" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Pregunta" Width="1.5" PointX="3" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.PreguntaDocente" Width="1.5" PointX="13.5" PointY="39.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.PreguntaServicios" Width="1.5" PointX="13.25" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Semestre" Width="1.5" PointX="3" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.TipoCarrera" Width="1.5" PointX="3.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IeseEncuestaModel.Usuario" Width="1.5" PointX="0.75" PointY="29.5" IsExpanded="true" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Alumno_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoMateria_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPrueba_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPruebaServicio_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_HistorialAlumno_Alumno" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoMateria_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoMateria_Docente" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoMateria_Materia1" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoMateria_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoMateria_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPrueba_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPrueba_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPruebaServicio_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPruebaServicio_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_AlumnoPruebaServicio_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Carrera_TipoCarrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Carrera_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioDocente_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioServicios_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_DocenteMateria_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_HistorialAlumno_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Materia_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaServicios_Carrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Categorias_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioServicios_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ConfiguracionPregunta_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaServicios_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioDocente_ConfiguracionEncuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioDocente_Docente" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioDocente_Materia" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioDocente_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ComentarioServicios_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ConfiguracionEncuesta_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ConfiguracionEncuesta_TipoCarrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ConfiguracionEncuesta_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Encuesta_ConfiguracionEncuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_ConfiguracionEncuesta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ConfiguracionPregunta_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_ConfiguracionPregunta_TipoCarrera" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Docente_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_DocenteMateria_Docente" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_Docente" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_DocenteMateria_Materia" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_DocenteMateria_Periodo2" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_DocenteMateria_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Encuesta_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_HistorialAlumno_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_HistorialAlumno_Semestre" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Materia_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_Materia" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_OpcionPregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaServicios_OpcionPregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Periodo_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaServicios_Periodo" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_Pregunta_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaDocente_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="IeseEncuestaModel.FK_PreguntaServicios_Pregunta" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

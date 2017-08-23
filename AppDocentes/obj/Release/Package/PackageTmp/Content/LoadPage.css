@@ -1,0 +1,104 @@
+﻿@keyframes anim {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+.bar {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 30px;
+    overflow: hidden;
+    background-size: 100px 100px;
+    background-image: linear-gradient(-45deg, #33c9ff 25%, #00b2f2 25%, #00b2f2 50%, #33c9ff 50%, #33c9ff 75%, #00b2f2 75%);
+    animation: anim 1s linear infinite;
+}
+
+    .bar p {
+        width: 200px;
+        margin: 6px auto;
+        text-align: center;
+        color: white;
+    }
+
+/*body{
+background: url(../Imagenes/IMG_4216.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}*/
+.backstretch {
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+#divFondo {
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    height: 391px;
+    width: 1287px;
+    z-index: -999999;
+    position: fixed;
+}
+
+    #divFondo .Efectoimg {
+        position: absolute;
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        width: 1287px;
+        height: 858px;
+        max-height: none;
+        max-width: none;
+        z-index: -999999;
+        left: 0px;
+        top: -233.5px;
+    }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.imgr {
+    -webkit-animation: 3s rotate linear infinite;
+    animation: 3s rotate linear infinite;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+    width: 150px;
+    height: 150px;
+    align-content: center;
+}

@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Preguntas de Servicios</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="shortcut icon" href="../Imagenes/logoiese2.ico" />
+    <link  href="../../Content/octicons.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Scripts/uniform/css/uniform.default.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap-select.min.css" rel="stylesheet" />
+    <link  href="../../Content/components.css" rel="stylesheet" />
+    <link  href="../../Content/layout.css" rel="stylesheet" />
+    <link  href="../../Content/Menu.css" rel="stylesheet" />
+    <link  href="../../Content/LoadPage.css" rel="stylesheet" />
+
+    <link href="../../Scripts/DataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../Scripts/DataTable/ColReorder/css/colReorder.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../Scripts/DataTable/Scroller/css/scroller.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../Scripts/DataTable/TableTools/css/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <link href="../../Scripts/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" />
+    <link href="../../Scripts/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" />
+
+    <link  href="../../Content/alertify.css" rel="stylesheet" />
+
+</head>
+<body class="login  Fondo">
+
+    <div class="page-content Transparente">
+        <div class="container">
+            <div class="page-title">
+                <img src="../../Imagenes/logoiese2.fw_.png" />
+            </div>
+            <br />
+        </div>
+        <div class="container" style="background-color: #013990!important; color: #FFFFFF;">
+            <div class="form-group col-md-12">
+                <hr />
+                <h3 id="lblNombre"></h3>
+                <hr />
+            </div>
+        </div>
+        <div class="container IeseRojoImage" id="MenuAlumno">
+
+        </div>
+        <!--Contenido-->
+        <div class="page-content Transparente">
+            <div class="container Sombra">
+
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="col-md-12 form-group">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-2">
+                                <a href="../Servicios/ListarServicios.html" class="btn bg-red octicon octicon-arrow-left">&nbsp; Regresar</a>
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-2">
+                                <h3 class="colorBlack">Servicio</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Nombre del Servicio</label>
+                                            <input id="txtNombre" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Carrera</label>
+                                            <input id="txtCarrera" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Periodo</label>
+                                            <input id="txtPeriodo" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
+                                            <input id="txtFecha" class="form-control" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <hr />
+                                    <div class="col-md-2">
+                                        <h3 class="colorBlack">Preguntas</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="container text-uppercase bold">
+                                        <p>Lee cuidadosamente cada una de los Items y selecciona el valor de acuerdo a la escala, para el desempeño del docente. </p>
+                                    </div>
+                                    <hr />
+                                </div>
+                                <div class="container form col-sm-12" id="Preguntas">
+                                    <form id="frmPreguntas">
+                                        <div class="alert alert-danger display-hide">
+                                            <button class="close" data-close="alert"></button>
+                                            <span>Todos los campos son necesarios.</span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal de carga-->
+    <div class="modal fade col-md-12" tabindex="-1" data-backdrop="static" data-width="150" id="Load" data-keyboard="false">
+        <div class="modal-dialog modal-sm" style="background-color:white !important; align-content:center">
+            <!--<div class="modal-content" style="width:auto">-->
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-6" style="background-color:white !important; display:table-cell; vertical-align:middle; text-align:center; width:300px">
+                <h3 id="hCarga">Cargando Datos</h3>
+                <img src="../../Imagenes/LogoIESE.png" class="imgr" />
+                <p id="txtBar"></p>
+            </div>
+        </div>
+    </div>
+    <!--Fin modal carga-->
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/DataTable/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../Scripts/uniform/jquery.uniform.js"></script>
+
+    <script src="../../Scripts/backstretch/jquery.backstretch.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.cokie.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.blockui.min.js"></script>
+
+    <script src="../../Scripts/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/localization/messages_es.js"></script>
+
+    <script src="../../Scripts/DataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/DataTable/js/dataTables.jqueryui.min.js"></script>
+    <script src="../../Scripts/DataTable/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="../../Scripts/DataTable/ColReorder/js/dataTables.colReorder.min.js"></script>
+    <script src="../../Scripts/DataTable/Scroller/js/dataTables.scroller.min.js"></script>
+
+    <script src="../../Scripts/alertify.js"></script>
+
+    <script src="../Alumno/Menu.js"></script>
+    <script src="../Servicios/CargarServicios.js"></script>
+</body>
+</html>

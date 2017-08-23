@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Reportes</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="shortcut icon" href="../Imagenes/logoiese2.ico" />
+    <link  href="../../Content/octicons.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Scripts/uniform/css/uniform.default.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap-select.min.css" rel="stylesheet" />
+    
+    <link  href="../../Content/LoadPage.css" rel="stylesheet" />
+
+    <link href="../../Scripts/DataTable/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../Scripts/DataTable/ColReorder/css/colReorder.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../Scripts/DataTable/Scroller/css/scroller.bootstrap4.min.css" rel="stylesheet" />
+    <link href="../../Scripts/DataTable/TableTools/css/dataTables.tableTools.min.css" rel="stylesheet" />
+
+    <link  href="../../Content/alertify.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--//Fondo-->
+    <div id="divFondo" class="backstretch">
+        <img class="Efectoimg" src="../../Imagenes/IMG_4216.jpg">
+    </div>
+
+    <div id="divGeneral">
+        <!--Menu Administrador-->
+        <div class="page-content Transparente">
+            <div class="container Sombra">
+                <div class="page-title">
+                    <img src="../../Imagenes/logoiese2.fw_.png" />
+                </div>
+                <br />
+            </div>
+            <!--Menu-->
+            <div class="container Sombra IeseRojoImage" id="Menu">
+
+            </div>
+        </div>
+        <!--Fin Menu Administrador-->
+        <div class="page-content Transparente">
+            <div class="container Sombra">
+
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <h3 class="colorBlack">Sistema de Evaluación de Docentes (SED)</h3>
+                        <hr />
+                        <h3 class="colorBlack">Reportes</h3>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table" id="divFiltros">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <div class="col-md-12 form-group">
+                                            <label class="control-label" for="slcDocente">Docente</label>
+                                            <select class="selectpicker btn-primary" id="slcDocente" name="slcDocente"
+                                                    title="Seleccionar Docente..." data-live-search="true"
+                                                    dropdownAlignRight="true"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-8 form-group">
+                                            <label class="control-label" for="slcModalidad">Modalidad</label>
+                                            <select class="selectpicker btn-primary" id="slcModalidad" name="slcModalidad"
+                                                    title="Seleccionar Modalidad..." data-live-search="true"
+                                                    dropdownAlignRight="true"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="col-md-12 form-group">
+                                            <label class="control-label" for="slcPeriodo">Periodo</label>
+                                            <select class="selectpicker btn-primary" id="slcPeriodo" name="slcPeriodo"
+                                                    title="Seleccionar Periodo..." data-live-search="true"
+                                                    dropdownAlignRight="true"></select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="col-md-12 form-group">
+                                        <label class="control-label" for="slcCarrera">Carrera</label>
+                                        <select class="selectpicker btn-primary" id="slcCarrera" name="slcCarrera"
+                                                title="Seleccionar Carrera..." data-live-search="true"
+                                                dropdownAlignRight="true"></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="col-md-12 form-group">
+                                        <label class="control-label" for="slcMateria">Materia</label>
+                                        <select class="selectpicker btn-primary" id="slcMateria" name="slcMateria"
+                                                title="Seleccionar Materia..." data-live-search="true"
+                                                dropdownAlignRight="true"></select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <label>&nbsp;</label>
+                                    <div class="col-md-12">
+                                        <label class="control-label">
+                                            <a id="btnBuscar" class="btn bg-inverse text-white">Generar Reporte</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <label>&nbsp;</label>
+                                    <div class="col-md-12">
+                                        <label class="control-label">
+                                            <a id="btnImprimir" class="btn btn-success text-white">Imprimir</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12"><hr /></div>
+                        </div>
+                        <div class="table" id="divReport">
+                            <div class="col-md-12" id="divNombre">
+                                <label id="lblNombre" class="control-label bold"></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12" id="dvPreguntas">
+
+                        </div>
+                        <div class="row col-md-12" id="dvComentarios">
+                            <h2>Comentarios</h2>
+                            <hr />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal de carga-->
+        <div class="modal fade" tabindex="-1" id="Load" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="hCarga" aria-hidden="true">
+            <div class="modal-dialog modal-sm" style="background-color:white !important; align-content:center">
+                <div class="modal-body bg-faded">
+                    <div class="bg-faded">
+                        <h3 id="hCarga" class="modal-title" style="text-align:center">Cargando Datos</h3>
+                        <div class="text-center">
+                            <img src="../../Imagenes/LogoIESE.png" class="imgr rounded mx-auto d-block" />
+                            <p id="txtBar"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tablas" hidden>
+
+    </div>
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.backstretch.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.cokie.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.blockui.min.js"></script>
+    <script src="../../Scripts/bootstrap-select.min.js"></script>
+    <script src="../../Scripts/i18n/defaults-es_CL.min.js"></script>
+    <script src="../../Scripts/uniform/jquery.uniform.js"></script>
+    <script src="../../Scripts/Print/jquery.printElement.js"></script>
+
+    <script src="../../Scripts/highcharts/4.2.0/highcharts.js"></script>
+    <script src="../../Scripts/highcharts/4.2.0/modules/data.js"></script>
+    <script src="../../Scripts/highcharts/4.2.0/modules/exporting.js"></script>
+
+
+
+    <script src="../../Scripts/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/localization/messages_es.js"></script>
+
+    <script src="../../Scripts/DataTable/js/jquery.dataTables.min.js"></script>
+    <script src="../../Scripts/DataTable/js/dataTables.jqueryui.min.js"></script>
+    <script src="../../Scripts/DataTable/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="../../Scripts/DataTable/ColReorder/js/dataTables.colReorder.min.js"></script>
+    <script src="../../Scripts/DataTable/Scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../../Scripts/DataTable/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../Administrativo/EfectoImagen.js"></script>
+    <script src="../Administrativo/Menu.js"></script>
+
+    <script src="../../Scripts/alertify.js"></script>
+
+    <script src="../Reportes/Reportes.js"></script>
+</body>
+</html>

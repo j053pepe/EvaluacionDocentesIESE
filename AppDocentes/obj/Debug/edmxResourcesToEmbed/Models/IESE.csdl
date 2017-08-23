@@ -1,0 +1,1353 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IeseEncuestaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Materno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EsSabatino" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioId" Type="Int32" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Alumno_Usuario" FromRole="Alumno" ToRole="Usuario" />
+    <NavigationProperty Name="AlumnoMateria" Relationship="Self.FK_AlumnoMateria_Alumno" FromRole="Alumno" ToRole="AlumnoMateria" />
+    <NavigationProperty Name="AlumnoPrueba" Relationship="Self.FK_AlumnoPrueba_Alumno" FromRole="Alumno" ToRole="AlumnoPrueba" />
+    <NavigationProperty Name="AlumnoPruebaServicio" Relationship="Self.FK_AlumnoPruebaServicio_Alumno" FromRole="Alumno" ToRole="AlumnoPruebaServicio" />
+    <NavigationProperty Name="HistorialAlumno" Relationship="Self.FK_HistorialAlumno_Alumno" FromRole="Alumno" ToRole="HistorialAlumno" />
+  </EntityType>
+  <EntityType Name="AlumnoMateria">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+      <PropertyRef Name="CarreraId" />
+      <PropertyRef Name="MateriaId" />
+      <PropertyRef Name="DocenteId" />
+      <PropertyRef Name="PeriodoId" />
+    </Key>
+    <Property Name="AlumnoMateriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlumnoId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="MateriaId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DocenteId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="FechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_AlumnoMateria_Alumno" FromRole="AlumnoMateria" ToRole="Alumno" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_AlumnoMateria_Carrera" FromRole="AlumnoMateria" ToRole="Carrera" />
+    <NavigationProperty Name="Docente" Relationship="Self.FK_AlumnoMateria_Docente" FromRole="AlumnoMateria" ToRole="Docente" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK_AlumnoMateria_Materia1" FromRole="AlumnoMateria" ToRole="Materia" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_AlumnoMateria_Periodo" FromRole="AlumnoMateria" ToRole="Periodo" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_AlumnoMateria_Usuario" FromRole="AlumnoMateria" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="AlumnoPrueba">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+      <PropertyRef Name="PeriodoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="FechaAplicacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estatus" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_AlumnoPrueba_Alumno" FromRole="AlumnoPrueba" ToRole="Alumno" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_AlumnoPrueba_Carrera" FromRole="AlumnoPrueba" ToRole="Carrera" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_AlumnoPrueba_Periodo" FromRole="AlumnoPrueba" ToRole="Periodo" />
+  </EntityType>
+  <EntityType Name="AlumnoPruebaServicio">
+    <Key>
+      <PropertyRef Name="AlumnoPruebaServicioId" />
+    </Key>
+    <Property Name="AlumnoPruebaServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlumnoId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="ServicioId" Type="Int32" Nullable="false" />
+    <Property Name="FechaAplicacion" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_AlumnoPruebaServicio_Alumno" FromRole="AlumnoPruebaServicio" ToRole="Alumno" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_AlumnoPruebaServicio_Carrera" FromRole="AlumnoPruebaServicio" ToRole="Carrera" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK_AlumnoPruebaServicio_Categorias" FromRole="AlumnoPruebaServicio" ToRole="Categorias" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_AlumnoPruebaServicio_Periodo" FromRole="AlumnoPruebaServicio" ToRole="Periodo" />
+  </EntityType>
+  <EntityType Name="Carrera">
+    <Key>
+      <PropertyRef Name="CarreraId" />
+    </Key>
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TipoCarreraId" Type="Int32" Nullable="false" />
+    <Property Name="UsuarioId" Type="Int32" />
+    <NavigationProperty Name="AlumnoMateria" Relationship="Self.FK_AlumnoMateria_Carrera" FromRole="Carrera" ToRole="AlumnoMateria" />
+    <NavigationProperty Name="AlumnoPrueba" Relationship="Self.FK_AlumnoPrueba_Carrera" FromRole="Carrera" ToRole="AlumnoPrueba" />
+    <NavigationProperty Name="AlumnoPruebaServicio" Relationship="Self.FK_AlumnoPruebaServicio_Carrera" FromRole="Carrera" ToRole="AlumnoPruebaServicio" />
+    <NavigationProperty Name="TipoCarrera" Relationship="Self.FK_Carrera_TipoCarrera" FromRole="Carrera" ToRole="TipoCarrera" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Carrera_Usuario" FromRole="Carrera" ToRole="Usuario" />
+    <NavigationProperty Name="ComentarioDocente" Relationship="Self.FK_ComentarioDocente_Carrera" FromRole="Carrera" ToRole="ComentarioDocente" />
+    <NavigationProperty Name="ComentarioServicios" Relationship="Self.FK_ComentarioServicios_Carrera" FromRole="Carrera" ToRole="ComentarioServicios" />
+    <NavigationProperty Name="DocenteMateria" Relationship="Self.FK_DocenteMateria_Carrera" FromRole="Carrera" ToRole="DocenteMateria" />
+    <NavigationProperty Name="HistorialAlumno" Relationship="Self.FK_HistorialAlumno_Carrera" FromRole="Carrera" ToRole="HistorialAlumno" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK_Materia_Carrera" FromRole="Carrera" ToRole="Materia" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_Carrera" FromRole="Carrera" ToRole="PreguntaDocente" />
+    <NavigationProperty Name="PreguntaServicios" Relationship="Self.FK_PreguntaServicios_Carrera" FromRole="Carrera" ToRole="PreguntaServicios" />
+  </EntityType>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="CategoriaId" />
+    </Key>
+    <Property Name="CategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="ClaveCategoria" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="UsuarioId" Type="Int32" />
+    <NavigationProperty Name="AlumnoPruebaServicio" Relationship="Self.FK_AlumnoPruebaServicio_Categorias" FromRole="Categorias" ToRole="AlumnoPruebaServicio" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Categorias_Usuario" FromRole="Categorias" ToRole="Usuario" />
+    <NavigationProperty Name="ComentarioServicios" Relationship="Self.FK_ComentarioServicios_Categorias" FromRole="Categorias" ToRole="ComentarioServicios" />
+    <NavigationProperty Name="ConfiguracionPregunta" Relationship="Self.FK_ConfiguracionPregunta_Categorias" FromRole="Categorias" ToRole="ConfiguracionPregunta" />
+    <NavigationProperty Name="PreguntaServicios" Relationship="Self.FK_PreguntaServicios_Categorias" FromRole="Categorias" ToRole="PreguntaServicios" />
+  </EntityType>
+  <EntityType Name="ComentarioDocente">
+    <Key>
+      <PropertyRef Name="ComentarioDocenteId" />
+    </Key>
+    <Property Name="ComentarioDocenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfiguracionEncuestaId" Type="Int32" Nullable="false" />
+    <Property Name="DocenteId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="MateriaId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaAplicacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comentario" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EsSabatino" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_ComentarioDocente_Carrera" FromRole="ComentarioDocente" ToRole="Carrera" />
+    <NavigationProperty Name="ConfiguracionEncuesta" Relationship="Self.FK_ComentarioDocente_ConfiguracionEncuesta" FromRole="ComentarioDocente" ToRole="ConfiguracionEncuesta" />
+    <NavigationProperty Name="Docente" Relationship="Self.FK_ComentarioDocente_Docente" FromRole="ComentarioDocente" ToRole="Docente" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK_ComentarioDocente_Materia" FromRole="ComentarioDocente" ToRole="Materia" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_ComentarioDocente_Periodo" FromRole="ComentarioDocente" ToRole="Periodo" />
+  </EntityType>
+  <EntityType Name="ComentarioServicios">
+    <Key>
+      <PropertyRef Name="ComentarioServicioId" />
+    </Key>
+    <Property Name="ComentarioServicioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfiguracionEncuestaId" Type="Int32" Nullable="false" />
+    <Property Name="CategoriaId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="EsSabatino" Type="Boolean" Nullable="false" />
+    <Property Name="FechaAplicacion" Type="DateTime" Precision="0" />
+    <Property Name="Comentario" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_ComentarioServicios_Carrera" FromRole="ComentarioServicios" ToRole="Carrera" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK_ComentarioServicios_Categorias" FromRole="ComentarioServicios" ToRole="Categorias" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_ComentarioServicios_Periodo" FromRole="ComentarioServicios" ToRole="Periodo" />
+  </EntityType>
+  <EntityType Name="ConfiguracionEncuesta">
+    <Key>
+      <PropertyRef Name="ConfiguracionEncuestaId" />
+    </Key>
+    <Property Name="ConfiguracionEncuestaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoCarreraId" Type="Int32" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+    <Property Name="FechaFin" Type="DateTime" Precision="0" />
+    <Property Name="Estatus" Type="Boolean" />
+    <Property Name="UsuarioModifico" Type="Int32" Nullable="false" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ComentarioDocente" Relationship="Self.FK_ComentarioDocente_ConfiguracionEncuesta" FromRole="ConfiguracionEncuesta" ToRole="ComentarioDocente" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_ConfiguracionEncuesta_Periodo" FromRole="ConfiguracionEncuesta" ToRole="Periodo" />
+    <NavigationProperty Name="TipoCarrera" Relationship="Self.FK_ConfiguracionEncuesta_TipoCarrera" FromRole="ConfiguracionEncuesta" ToRole="TipoCarrera" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_ConfiguracionEncuesta_Usuario" FromRole="ConfiguracionEncuesta" ToRole="Usuario" />
+    <NavigationProperty Name="Encuesta" Relationship="Self.FK_Encuesta_ConfiguracionEncuesta" FromRole="ConfiguracionEncuesta" ToRole="Encuesta" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_ConfiguracionEncuesta" FromRole="ConfiguracionEncuesta" ToRole="PreguntaDocente" />
+  </EntityType>
+  <EntityType Name="ConfiguracionPregunta">
+    <Key>
+      <PropertyRef Name="PreguntaId" />
+    </Key>
+    <Property Name="PreguntaId" Type="Int32" Nullable="false" />
+    <Property Name="CategoriaId" Type="Int32" />
+    <Property Name="TipoCarreraId" Type="Int32" />
+    <Property Name="ClaveOpcionId" Type="Int32" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK_ConfiguracionPregunta_Categorias" FromRole="ConfiguracionPregunta" ToRole="Categorias" />
+    <NavigationProperty Name="Pregunta" Relationship="Self.FK_ConfiguracionPregunta_Pregunta" FromRole="ConfiguracionPregunta" ToRole="Pregunta" />
+    <NavigationProperty Name="TipoCarrera" Relationship="Self.FK_ConfiguracionPregunta_TipoCarrera" FromRole="ConfiguracionPregunta" ToRole="TipoCarrera" />
+  </EntityType>
+  <EntityType Name="Docente">
+    <Key>
+      <PropertyRef Name="DocenteId" />
+    </Key>
+    <Property Name="DocenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Materno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="urlImagen" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AlumnoMateria" Relationship="Self.FK_AlumnoMateria_Docente" FromRole="Docente" ToRole="AlumnoMateria" />
+    <NavigationProperty Name="ComentarioDocente" Relationship="Self.FK_ComentarioDocente_Docente" FromRole="Docente" ToRole="ComentarioDocente" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Docente_Usuario" FromRole="Docente" ToRole="Usuario" />
+    <NavigationProperty Name="DocenteMateria" Relationship="Self.FK_DocenteMateria_Docente" FromRole="Docente" ToRole="DocenteMateria" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_Docente" FromRole="Docente" ToRole="PreguntaDocente" />
+  </EntityType>
+  <EntityType Name="DocenteMateria">
+    <Key>
+      <PropertyRef Name="CarreraId" />
+      <PropertyRef Name="PeriodoId" />
+      <PropertyRef Name="DocenteId" />
+      <PropertyRef Name="MateriaId" />
+      <PropertyRef Name="EsSabatino" />
+    </Key>
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="DocenteId" Type="Int32" Nullable="false" />
+    <Property Name="MateriaId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EsSabatino" Type="Boolean" Nullable="false" />
+    <Property Name="UsuarioId" Type="Int32" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_DocenteMateria_Carrera" FromRole="DocenteMateria" ToRole="Carrera" />
+    <NavigationProperty Name="Docente" Relationship="Self.FK_DocenteMateria_Docente" FromRole="DocenteMateria" ToRole="Docente" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK_DocenteMateria_Materia" FromRole="DocenteMateria" ToRole="Materia" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_DocenteMateria_Periodo2" FromRole="DocenteMateria" ToRole="Periodo" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_DocenteMateria_Usuario" FromRole="DocenteMateria" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Encuesta">
+    <Key>
+      <PropertyRef Name="EncuestaId" />
+    </Key>
+    <Property Name="EncuestaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfiguracionEncuestaId" Type="Int32" />
+    <Property Name="PreguntaId" Type="Int32" />
+    <Property Name="Estatus" Type="Int32" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="UsuarioModifico" Type="Int32" />
+    <NavigationProperty Name="ConfiguracionEncuesta" Relationship="Self.FK_Encuesta_ConfiguracionEncuesta" FromRole="Encuesta" ToRole="ConfiguracionEncuesta" />
+    <NavigationProperty Name="Pregunta" Relationship="Self.FK_Encuesta_Pregunta" FromRole="Encuesta" ToRole="Pregunta" />
+  </EntityType>
+  <EntityType Name="HistorialAlumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+      <PropertyRef Name="CarreraId" />
+      <PropertyRef Name="SemestreId" />
+      <PropertyRef Name="PeriodoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="SemestreId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_HistorialAlumno_Alumno" FromRole="HistorialAlumno" ToRole="Alumno" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_HistorialAlumno_Carrera" FromRole="HistorialAlumno" ToRole="Carrera" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_HistorialAlumno_Periodo" FromRole="HistorialAlumno" ToRole="Periodo" />
+    <NavigationProperty Name="Semestre" Relationship="Self.FK_HistorialAlumno_Semestre" FromRole="HistorialAlumno" ToRole="Semestre" />
+  </EntityType>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="MateriaId" />
+    </Key>
+    <Property Name="MateriaId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UsuarioId" Type="Int32" />
+    <NavigationProperty Name="AlumnoMateria" Relationship="Self.FK_AlumnoMateria_Materia1" FromRole="Materia" ToRole="AlumnoMateria" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_Materia_Carrera" FromRole="Materia" ToRole="Carrera" />
+    <NavigationProperty Name="ComentarioDocente" Relationship="Self.FK_ComentarioDocente_Materia" FromRole="Materia" ToRole="ComentarioDocente" />
+    <NavigationProperty Name="DocenteMateria" Relationship="Self.FK_DocenteMateria_Materia" FromRole="Materia" ToRole="DocenteMateria" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Materia_Usuario" FromRole="Materia" ToRole="Usuario" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_Materia" FromRole="Materia" ToRole="PreguntaDocente" />
+  </EntityType>
+  <EntityType Name="OpcionPregunta">
+    <Key>
+      <PropertyRef Name="OpcionPreguntaId" />
+    </Key>
+    <Property Name="OpcionPreguntaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaveOpcionId" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_OpcionPregunta" FromRole="OpcionPregunta" ToRole="PreguntaDocente" />
+    <NavigationProperty Name="PreguntaServicios" Relationship="Self.FK_PreguntaServicios_OpcionPregunta" FromRole="OpcionPregunta" ToRole="PreguntaServicios" />
+  </EntityType>
+  <EntityType Name="Periodo">
+    <Key>
+      <PropertyRef Name="PeriodoId" />
+    </Key>
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UsuarioId" Type="Int32" />
+    <NavigationProperty Name="AlumnoMateria" Relationship="Self.FK_AlumnoMateria_Periodo" FromRole="Periodo" ToRole="AlumnoMateria" />
+    <NavigationProperty Name="AlumnoPrueba" Relationship="Self.FK_AlumnoPrueba_Periodo" FromRole="Periodo" ToRole="AlumnoPrueba" />
+    <NavigationProperty Name="AlumnoPruebaServicio" Relationship="Self.FK_AlumnoPruebaServicio_Periodo" FromRole="Periodo" ToRole="AlumnoPruebaServicio" />
+    <NavigationProperty Name="ComentarioDocente" Relationship="Self.FK_ComentarioDocente_Periodo" FromRole="Periodo" ToRole="ComentarioDocente" />
+    <NavigationProperty Name="ComentarioServicios" Relationship="Self.FK_ComentarioServicios_Periodo" FromRole="Periodo" ToRole="ComentarioServicios" />
+    <NavigationProperty Name="ConfiguracionEncuesta" Relationship="Self.FK_ConfiguracionEncuesta_Periodo" FromRole="Periodo" ToRole="ConfiguracionEncuesta" />
+    <NavigationProperty Name="DocenteMateria" Relationship="Self.FK_DocenteMateria_Periodo2" FromRole="Periodo" ToRole="DocenteMateria" />
+    <NavigationProperty Name="HistorialAlumno" Relationship="Self.FK_HistorialAlumno_Periodo" FromRole="Periodo" ToRole="HistorialAlumno" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Periodo_Usuario" FromRole="Periodo" ToRole="Usuario" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_Periodo" FromRole="Periodo" ToRole="PreguntaDocente" />
+    <NavigationProperty Name="PreguntaServicios" Relationship="Self.FK_PreguntaServicios_Periodo" FromRole="Periodo" ToRole="PreguntaServicios" />
+  </EntityType>
+  <EntityType Name="Pregunta">
+    <Key>
+      <PropertyRef Name="PreguntaId" />
+    </Key>
+    <Property Name="PreguntaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="Estatus" Type="Boolean" />
+    <NavigationProperty Name="ConfiguracionPregunta" Relationship="Self.FK_ConfiguracionPregunta_Pregunta" FromRole="Pregunta" ToRole="ConfiguracionPregunta" />
+    <NavigationProperty Name="Encuesta" Relationship="Self.FK_Encuesta_Pregunta" FromRole="Pregunta" ToRole="Encuesta" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Pregunta_Usuario" FromRole="Pregunta" ToRole="Usuario" />
+    <NavigationProperty Name="PreguntaDocente" Relationship="Self.FK_PreguntaDocente_Pregunta" FromRole="Pregunta" ToRole="PreguntaDocente" />
+    <NavigationProperty Name="PreguntaServicios" Relationship="Self.FK_PreguntaServicios_Pregunta" FromRole="Pregunta" ToRole="PreguntaServicios" />
+  </EntityType>
+  <EntityType Name="PreguntaDocente">
+    <Key>
+      <PropertyRef Name="PreguntaDocenteId" />
+    </Key>
+    <Property Name="PreguntaDocenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfiguracionEncuestaId" Type="Int32" Nullable="false" />
+    <Property Name="DocenteId" Type="Int32" Nullable="false" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="MateriaId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FechaAplicacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PreguntaId" Type="Int32" Nullable="false" />
+    <Property Name="OpcionPreguntaId" Type="Int32" Nullable="false" />
+    <Property Name="EsSabatino" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_PreguntaDocente_Carrera" FromRole="PreguntaDocente" ToRole="Carrera" />
+    <NavigationProperty Name="ConfiguracionEncuesta" Relationship="Self.FK_PreguntaDocente_ConfiguracionEncuesta" FromRole="PreguntaDocente" ToRole="ConfiguracionEncuesta" />
+    <NavigationProperty Name="Docente" Relationship="Self.FK_PreguntaDocente_Docente" FromRole="PreguntaDocente" ToRole="Docente" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK_PreguntaDocente_Materia" FromRole="PreguntaDocente" ToRole="Materia" />
+    <NavigationProperty Name="OpcionPregunta" Relationship="Self.FK_PreguntaDocente_OpcionPregunta" FromRole="PreguntaDocente" ToRole="OpcionPregunta" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_PreguntaDocente_Periodo" FromRole="PreguntaDocente" ToRole="Periodo" />
+    <NavigationProperty Name="Pregunta" Relationship="Self.FK_PreguntaDocente_Pregunta" FromRole="PreguntaDocente" ToRole="Pregunta" />
+  </EntityType>
+  <EntityType Name="PreguntaServicios">
+    <Key>
+      <PropertyRef Name="PreguntaServiciosId" />
+    </Key>
+    <Property Name="PreguntaServiciosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfiguracionEncuestaId" Type="Int32" Nullable="false" />
+    <Property Name="CategoriaId" Type="Int32" />
+    <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+    <Property Name="CarreraId" Type="Int32" Nullable="false" />
+    <Property Name="FechaAplicacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="PreguntaId" Type="Int32" Nullable="false" />
+    <Property Name="EsSabatino" Type="Boolean" Nullable="false" />
+    <Property Name="OpcionPreguntaId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_PreguntaServicios_Carrera" FromRole="PreguntaServicios" ToRole="Carrera" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK_PreguntaServicios_Categorias" FromRole="PreguntaServicios" ToRole="Categorias" />
+    <NavigationProperty Name="OpcionPregunta" Relationship="Self.FK_PreguntaServicios_OpcionPregunta" FromRole="PreguntaServicios" ToRole="OpcionPregunta" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_PreguntaServicios_Periodo" FromRole="PreguntaServicios" ToRole="Periodo" />
+    <NavigationProperty Name="Pregunta" Relationship="Self.FK_PreguntaServicios_Pregunta" FromRole="PreguntaServicios" ToRole="Pregunta" />
+  </EntityType>
+  <EntityType Name="Semestre">
+    <Key>
+      <PropertyRef Name="SemestreId" />
+    </Key>
+    <Property Name="SemestreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="HistorialAlumno" Relationship="Self.FK_HistorialAlumno_Semestre" FromRole="Semestre" ToRole="HistorialAlumno" />
+  </EntityType>
+  <EntityType Name="TipoCarrera">
+    <Key>
+      <PropertyRef Name="TipoCarreraId" />
+    </Key>
+    <Property Name="TipoCarreraId" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_Carrera_TipoCarrera" FromRole="TipoCarrera" ToRole="Carrera" />
+    <NavigationProperty Name="ConfiguracionEncuesta" Relationship="Self.FK_ConfiguracionEncuesta_TipoCarrera" FromRole="TipoCarrera" ToRole="ConfiguracionEncuesta" />
+    <NavigationProperty Name="ConfiguracionPregunta" Relationship="Self.FK_ConfiguracionPregunta_TipoCarrera" FromRole="TipoCarrera" ToRole="ConfiguracionPregunta" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="UsuarioId" />
+    </Key>
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nick" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Materno" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_Alumno_Usuario" FromRole="Usuario" ToRole="Alumno" />
+    <NavigationProperty Name="AlumnoMateria" Relationship="Self.FK_AlumnoMateria_Usuario" FromRole="Usuario" ToRole="AlumnoMateria" />
+    <NavigationProperty Name="Carrera" Relationship="Self.FK_Carrera_Usuario" FromRole="Usuario" ToRole="Carrera" />
+    <NavigationProperty Name="Categorias" Relationship="Self.FK_Categorias_Usuario" FromRole="Usuario" ToRole="Categorias" />
+    <NavigationProperty Name="ConfiguracionEncuesta" Relationship="Self.FK_ConfiguracionEncuesta_Usuario" FromRole="Usuario" ToRole="ConfiguracionEncuesta" />
+    <NavigationProperty Name="Docente" Relationship="Self.FK_Docente_Usuario" FromRole="Usuario" ToRole="Docente" />
+    <NavigationProperty Name="DocenteMateria" Relationship="Self.FK_DocenteMateria_Usuario" FromRole="Usuario" ToRole="DocenteMateria" />
+    <NavigationProperty Name="Materia" Relationship="Self.FK_Materia_Usuario" FromRole="Usuario" ToRole="Materia" />
+    <NavigationProperty Name="Periodo" Relationship="Self.FK_Periodo_Usuario" FromRole="Usuario" ToRole="Periodo" />
+    <NavigationProperty Name="Pregunta" Relationship="Self.FK_Pregunta_Usuario" FromRole="Usuario" ToRole="Pregunta" />
+  </EntityType>
+  <Association Name="FK_Alumno_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Alumno">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoMateria_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="AlumnoMateria" Type="Self.AlumnoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="AlumnoMateria">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPrueba_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="AlumnoPrueba" Type="Self.AlumnoPrueba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="AlumnoPrueba">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPruebaServicio_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="AlumnoPruebaServicio" Type="Self.AlumnoPruebaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="AlumnoPruebaServicio">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialAlumno_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="HistorialAlumno" Type="Self.HistorialAlumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="HistorialAlumno">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoMateria_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="AlumnoMateria" Type="Self.AlumnoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="AlumnoMateria">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoMateria_Docente">
+    <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+    <End Role="AlumnoMateria" Type="Self.AlumnoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Docente">
+        <PropertyRef Name="DocenteId" />
+      </Principal>
+      <Dependent Role="AlumnoMateria">
+        <PropertyRef Name="DocenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoMateria_Materia1">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+    <End Role="AlumnoMateria" Type="Self.AlumnoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="MateriaId" />
+      </Principal>
+      <Dependent Role="AlumnoMateria">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoMateria_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="AlumnoMateria" Type="Self.AlumnoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="AlumnoMateria">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoMateria_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="AlumnoMateria" Type="Self.AlumnoMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="AlumnoMateria">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPrueba_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="AlumnoPrueba" Type="Self.AlumnoPrueba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="AlumnoPrueba">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPrueba_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="AlumnoPrueba" Type="Self.AlumnoPrueba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="AlumnoPrueba">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPruebaServicio_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="AlumnoPruebaServicio" Type="Self.AlumnoPruebaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="AlumnoPruebaServicio">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPruebaServicio_Categorias">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+    <End Role="AlumnoPruebaServicio" Type="Self.AlumnoPruebaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="CategoriaId" />
+      </Principal>
+      <Dependent Role="AlumnoPruebaServicio">
+        <PropertyRef Name="ServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AlumnoPruebaServicio_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="AlumnoPruebaServicio" Type="Self.AlumnoPruebaServicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="AlumnoPruebaServicio">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carrera_TipoCarrera">
+    <End Role="TipoCarrera" Type="Self.TipoCarrera" Multiplicity="1" />
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCarrera">
+        <PropertyRef Name="TipoCarreraId" />
+      </Principal>
+      <Dependent Role="Carrera">
+        <PropertyRef Name="TipoCarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carrera_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Carrera">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioDocente_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="ComentarioDocente" Type="Self.ComentarioDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="ComentarioDocente">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioServicios_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="ComentarioServicios" Type="Self.ComentarioServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="ComentarioServicios">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocenteMateria_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="DocenteMateria" Type="Self.DocenteMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="DocenteMateria">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialAlumno_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="HistorialAlumno" Type="Self.HistorialAlumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="HistorialAlumno">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materia_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaServicios_Carrera">
+    <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+    <End Role="PreguntaServicios" Type="Self.PreguntaServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrera">
+        <PropertyRef Name="CarreraId" />
+      </Principal>
+      <Dependent Role="PreguntaServicios">
+        <PropertyRef Name="CarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categorias_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Categorias">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioServicios_Categorias">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+    <End Role="ComentarioServicios" Type="Self.ComentarioServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="CategoriaId" />
+      </Principal>
+      <Dependent Role="ComentarioServicios">
+        <PropertyRef Name="CategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionPregunta_Categorias">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+    <End Role="ConfiguracionPregunta" Type="Self.ConfiguracionPregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="CategoriaId" />
+      </Principal>
+      <Dependent Role="ConfiguracionPregunta">
+        <PropertyRef Name="CategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaServicios_Categorias">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+    <End Role="PreguntaServicios" Type="Self.PreguntaServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="CategoriaId" />
+      </Principal>
+      <Dependent Role="PreguntaServicios">
+        <PropertyRef Name="CategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioDocente_ConfiguracionEncuesta">
+    <End Role="ConfiguracionEncuesta" Type="Self.ConfiguracionEncuesta" Multiplicity="1" />
+    <End Role="ComentarioDocente" Type="Self.ComentarioDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfiguracionEncuesta">
+        <PropertyRef Name="ConfiguracionEncuestaId" />
+      </Principal>
+      <Dependent Role="ComentarioDocente">
+        <PropertyRef Name="ConfiguracionEncuestaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioDocente_Docente">
+    <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+    <End Role="ComentarioDocente" Type="Self.ComentarioDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Docente">
+        <PropertyRef Name="DocenteId" />
+      </Principal>
+      <Dependent Role="ComentarioDocente">
+        <PropertyRef Name="DocenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioDocente_Materia">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+    <End Role="ComentarioDocente" Type="Self.ComentarioDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="MateriaId" />
+      </Principal>
+      <Dependent Role="ComentarioDocente">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioDocente_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="ComentarioDocente" Type="Self.ComentarioDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="ComentarioDocente">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComentarioServicios_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="ComentarioServicios" Type="Self.ComentarioServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="ComentarioServicios">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionEncuesta_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="ConfiguracionEncuesta" Type="Self.ConfiguracionEncuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="ConfiguracionEncuesta">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionEncuesta_TipoCarrera">
+    <End Role="TipoCarrera" Type="Self.TipoCarrera" Multiplicity="1" />
+    <End Role="ConfiguracionEncuesta" Type="Self.ConfiguracionEncuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCarrera">
+        <PropertyRef Name="TipoCarreraId" />
+      </Principal>
+      <Dependent Role="ConfiguracionEncuesta">
+        <PropertyRef Name="TipoCarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionEncuesta_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="ConfiguracionEncuesta" Type="Self.ConfiguracionEncuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="ConfiguracionEncuesta">
+        <PropertyRef Name="UsuarioModifico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_ConfiguracionEncuesta">
+    <End Role="ConfiguracionEncuesta" Type="Self.ConfiguracionEncuesta" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="Self.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfiguracionEncuesta">
+        <PropertyRef Name="ConfiguracionEncuestaId" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="ConfiguracionEncuestaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_ConfiguracionEncuesta">
+    <End Role="ConfiguracionEncuesta" Type="Self.ConfiguracionEncuesta" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfiguracionEncuesta">
+        <PropertyRef Name="ConfiguracionEncuestaId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="ConfiguracionEncuestaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionPregunta_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+    <End Role="ConfiguracionPregunta" Type="Self.ConfiguracionPregunta" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="PreguntaId" />
+      </Principal>
+      <Dependent Role="ConfiguracionPregunta">
+        <PropertyRef Name="PreguntaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfiguracionPregunta_TipoCarrera">
+    <End Role="TipoCarrera" Type="Self.TipoCarrera" Multiplicity="0..1" />
+    <End Role="ConfiguracionPregunta" Type="Self.ConfiguracionPregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCarrera">
+        <PropertyRef Name="TipoCarreraId" />
+      </Principal>
+      <Dependent Role="ConfiguracionPregunta">
+        <PropertyRef Name="TipoCarreraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Docente_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Docente" Type="Self.Docente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Docente">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocenteMateria_Docente">
+    <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+    <End Role="DocenteMateria" Type="Self.DocenteMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Docente">
+        <PropertyRef Name="DocenteId" />
+      </Principal>
+      <Dependent Role="DocenteMateria">
+        <PropertyRef Name="DocenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_Docente">
+    <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Docente">
+        <PropertyRef Name="DocenteId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="DocenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocenteMateria_Materia">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+    <End Role="DocenteMateria" Type="Self.DocenteMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="MateriaId" />
+      </Principal>
+      <Dependent Role="DocenteMateria">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocenteMateria_Periodo2">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="DocenteMateria" Type="Self.DocenteMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="DocenteMateria">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocenteMateria_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="DocenteMateria" Type="Self.DocenteMateria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="DocenteMateria">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Encuesta_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="0..1" />
+    <End Role="Encuesta" Type="Self.Encuesta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="PreguntaId" />
+      </Principal>
+      <Dependent Role="Encuesta">
+        <PropertyRef Name="PreguntaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialAlumno_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="HistorialAlumno" Type="Self.HistorialAlumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="HistorialAlumno">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistorialAlumno_Semestre">
+    <End Role="Semestre" Type="Self.Semestre" Multiplicity="1" />
+    <End Role="HistorialAlumno" Type="Self.HistorialAlumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semestre">
+        <PropertyRef Name="SemestreId" />
+      </Principal>
+      <Dependent Role="HistorialAlumno">
+        <PropertyRef Name="SemestreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materia_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Materia" Type="Self.Materia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Materia">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_Materia">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="MateriaId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="MateriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_OpcionPregunta">
+    <End Role="OpcionPregunta" Type="Self.OpcionPregunta" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionPregunta">
+        <PropertyRef Name="OpcionPreguntaId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="OpcionPreguntaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaServicios_OpcionPregunta">
+    <End Role="OpcionPregunta" Type="Self.OpcionPregunta" Multiplicity="1" />
+    <End Role="PreguntaServicios" Type="Self.PreguntaServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionPregunta">
+        <PropertyRef Name="OpcionPreguntaId" />
+      </Principal>
+      <Dependent Role="PreguntaServicios">
+        <PropertyRef Name="OpcionPreguntaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Periodo_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Periodo">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaServicios_Periodo">
+    <End Role="Periodo" Type="Self.Periodo" Multiplicity="1" />
+    <End Role="PreguntaServicios" Type="Self.PreguntaServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periodo">
+        <PropertyRef Name="PeriodoId" />
+      </Principal>
+      <Dependent Role="PreguntaServicios">
+        <PropertyRef Name="PeriodoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pregunta_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="UsuarioId" />
+      </Principal>
+      <Dependent Role="Pregunta">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaDocente_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+    <End Role="PreguntaDocente" Type="Self.PreguntaDocente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="PreguntaId" />
+      </Principal>
+      <Dependent Role="PreguntaDocente">
+        <PropertyRef Name="PreguntaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PreguntaServicios_Pregunta">
+    <End Role="Pregunta" Type="Self.Pregunta" Multiplicity="1" />
+    <End Role="PreguntaServicios" Type="Self.PreguntaServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pregunta">
+        <PropertyRef Name="PreguntaId" />
+      </Principal>
+      <Dependent Role="PreguntaServicios">
+        <PropertyRef Name="PreguntaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IESEEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="AlumnoMateria" EntityType="Self.AlumnoMateria" />
+    <EntitySet Name="AlumnoPrueba" EntityType="Self.AlumnoPrueba" />
+    <EntitySet Name="AlumnoPruebaServicio" EntityType="Self.AlumnoPruebaServicio" />
+    <EntitySet Name="Carrera" EntityType="Self.Carrera" />
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+    <EntitySet Name="ComentarioDocente" EntityType="Self.ComentarioDocente" />
+    <EntitySet Name="ComentarioServicios" EntityType="Self.ComentarioServicios" />
+    <EntitySet Name="ConfiguracionEncuesta" EntityType="Self.ConfiguracionEncuesta" />
+    <EntitySet Name="ConfiguracionPregunta" EntityType="Self.ConfiguracionPregunta" />
+    <EntitySet Name="Docente" EntityType="Self.Docente" />
+    <EntitySet Name="DocenteMateria" EntityType="Self.DocenteMateria" />
+    <EntitySet Name="Encuesta" EntityType="Self.Encuesta" />
+    <EntitySet Name="HistorialAlumno" EntityType="Self.HistorialAlumno" />
+    <EntitySet Name="Materia" EntityType="Self.Materia" />
+    <EntitySet Name="OpcionPregunta" EntityType="Self.OpcionPregunta" />
+    <EntitySet Name="Periodo" EntityType="Self.Periodo" />
+    <EntitySet Name="Pregunta" EntityType="Self.Pregunta" />
+    <EntitySet Name="PreguntaDocente" EntityType="Self.PreguntaDocente" />
+    <EntitySet Name="PreguntaServicios" EntityType="Self.PreguntaServicios" />
+    <EntitySet Name="Semestre" EntityType="Self.Semestre" />
+    <EntitySet Name="TipoCarrera" EntityType="Self.TipoCarrera" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Alumno_Usuario" Association="Self.FK_Alumno_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Alumno" EntitySet="Alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoMateria_Alumno" Association="Self.FK_AlumnoMateria_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="AlumnoMateria" EntitySet="AlumnoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPrueba_Alumno" Association="Self.FK_AlumnoPrueba_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="AlumnoPrueba" EntitySet="AlumnoPrueba" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPruebaServicio_Alumno" Association="Self.FK_AlumnoPruebaServicio_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="AlumnoPruebaServicio" EntitySet="AlumnoPruebaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialAlumno_Alumno" Association="Self.FK_HistorialAlumno_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="HistorialAlumno" EntitySet="HistorialAlumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoMateria_Carrera" Association="Self.FK_AlumnoMateria_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="AlumnoMateria" EntitySet="AlumnoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoMateria_Docente" Association="Self.FK_AlumnoMateria_Docente">
+      <End Role="Docente" EntitySet="Docente" />
+      <End Role="AlumnoMateria" EntitySet="AlumnoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoMateria_Materia1" Association="Self.FK_AlumnoMateria_Materia1">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="AlumnoMateria" EntitySet="AlumnoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoMateria_Periodo" Association="Self.FK_AlumnoMateria_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="AlumnoMateria" EntitySet="AlumnoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoMateria_Usuario" Association="Self.FK_AlumnoMateria_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="AlumnoMateria" EntitySet="AlumnoMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPrueba_Carrera" Association="Self.FK_AlumnoPrueba_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="AlumnoPrueba" EntitySet="AlumnoPrueba" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPrueba_Periodo" Association="Self.FK_AlumnoPrueba_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="AlumnoPrueba" EntitySet="AlumnoPrueba" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPruebaServicio_Carrera" Association="Self.FK_AlumnoPruebaServicio_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="AlumnoPruebaServicio" EntitySet="AlumnoPruebaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPruebaServicio_Categorias" Association="Self.FK_AlumnoPruebaServicio_Categorias">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="AlumnoPruebaServicio" EntitySet="AlumnoPruebaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AlumnoPruebaServicio_Periodo" Association="Self.FK_AlumnoPruebaServicio_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="AlumnoPruebaServicio" EntitySet="AlumnoPruebaServicio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carrera_TipoCarrera" Association="Self.FK_Carrera_TipoCarrera">
+      <End Role="TipoCarrera" EntitySet="TipoCarrera" />
+      <End Role="Carrera" EntitySet="Carrera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carrera_Usuario" Association="Self.FK_Carrera_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Carrera" EntitySet="Carrera" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioDocente_Carrera" Association="Self.FK_ComentarioDocente_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="ComentarioDocente" EntitySet="ComentarioDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioServicios_Carrera" Association="Self.FK_ComentarioServicios_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="ComentarioServicios" EntitySet="ComentarioServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocenteMateria_Carrera" Association="Self.FK_DocenteMateria_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="DocenteMateria" EntitySet="DocenteMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialAlumno_Carrera" Association="Self.FK_HistorialAlumno_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="HistorialAlumno" EntitySet="HistorialAlumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materia_Carrera" Association="Self.FK_Materia_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="Materia" EntitySet="Materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_Carrera" Association="Self.FK_PreguntaDocente_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaServicios_Carrera" Association="Self.FK_PreguntaServicios_Carrera">
+      <End Role="Carrera" EntitySet="Carrera" />
+      <End Role="PreguntaServicios" EntitySet="PreguntaServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categorias_Usuario" Association="Self.FK_Categorias_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Categorias" EntitySet="Categorias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioServicios_Categorias" Association="Self.FK_ComentarioServicios_Categorias">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="ComentarioServicios" EntitySet="ComentarioServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionPregunta_Categorias" Association="Self.FK_ConfiguracionPregunta_Categorias">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="ConfiguracionPregunta" EntitySet="ConfiguracionPregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaServicios_Categorias" Association="Self.FK_PreguntaServicios_Categorias">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="PreguntaServicios" EntitySet="PreguntaServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioDocente_ConfiguracionEncuesta" Association="Self.FK_ComentarioDocente_ConfiguracionEncuesta">
+      <End Role="ConfiguracionEncuesta" EntitySet="ConfiguracionEncuesta" />
+      <End Role="ComentarioDocente" EntitySet="ComentarioDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioDocente_Docente" Association="Self.FK_ComentarioDocente_Docente">
+      <End Role="Docente" EntitySet="Docente" />
+      <End Role="ComentarioDocente" EntitySet="ComentarioDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioDocente_Materia" Association="Self.FK_ComentarioDocente_Materia">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="ComentarioDocente" EntitySet="ComentarioDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioDocente_Periodo" Association="Self.FK_ComentarioDocente_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="ComentarioDocente" EntitySet="ComentarioDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComentarioServicios_Periodo" Association="Self.FK_ComentarioServicios_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="ComentarioServicios" EntitySet="ComentarioServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionEncuesta_Periodo" Association="Self.FK_ConfiguracionEncuesta_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="ConfiguracionEncuesta" EntitySet="ConfiguracionEncuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionEncuesta_TipoCarrera" Association="Self.FK_ConfiguracionEncuesta_TipoCarrera">
+      <End Role="TipoCarrera" EntitySet="TipoCarrera" />
+      <End Role="ConfiguracionEncuesta" EntitySet="ConfiguracionEncuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionEncuesta_Usuario" Association="Self.FK_ConfiguracionEncuesta_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="ConfiguracionEncuesta" EntitySet="ConfiguracionEncuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_ConfiguracionEncuesta" Association="Self.FK_Encuesta_ConfiguracionEncuesta">
+      <End Role="ConfiguracionEncuesta" EntitySet="ConfiguracionEncuesta" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_ConfiguracionEncuesta" Association="Self.FK_PreguntaDocente_ConfiguracionEncuesta">
+      <End Role="ConfiguracionEncuesta" EntitySet="ConfiguracionEncuesta" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionPregunta_Pregunta" Association="Self.FK_ConfiguracionPregunta_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="ConfiguracionPregunta" EntitySet="ConfiguracionPregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfiguracionPregunta_TipoCarrera" Association="Self.FK_ConfiguracionPregunta_TipoCarrera">
+      <End Role="TipoCarrera" EntitySet="TipoCarrera" />
+      <End Role="ConfiguracionPregunta" EntitySet="ConfiguracionPregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Docente_Usuario" Association="Self.FK_Docente_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Docente" EntitySet="Docente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocenteMateria_Docente" Association="Self.FK_DocenteMateria_Docente">
+      <End Role="Docente" EntitySet="Docente" />
+      <End Role="DocenteMateria" EntitySet="DocenteMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_Docente" Association="Self.FK_PreguntaDocente_Docente">
+      <End Role="Docente" EntitySet="Docente" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocenteMateria_Materia" Association="Self.FK_DocenteMateria_Materia">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="DocenteMateria" EntitySet="DocenteMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocenteMateria_Periodo2" Association="Self.FK_DocenteMateria_Periodo2">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="DocenteMateria" EntitySet="DocenteMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocenteMateria_Usuario" Association="Self.FK_DocenteMateria_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="DocenteMateria" EntitySet="DocenteMateria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Encuesta_Pregunta" Association="Self.FK_Encuesta_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="Encuesta" EntitySet="Encuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialAlumno_Periodo" Association="Self.FK_HistorialAlumno_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="HistorialAlumno" EntitySet="HistorialAlumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistorialAlumno_Semestre" Association="Self.FK_HistorialAlumno_Semestre">
+      <End Role="Semestre" EntitySet="Semestre" />
+      <End Role="HistorialAlumno" EntitySet="HistorialAlumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materia_Usuario" Association="Self.FK_Materia_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Materia" EntitySet="Materia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_Materia" Association="Self.FK_PreguntaDocente_Materia">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_OpcionPregunta" Association="Self.FK_PreguntaDocente_OpcionPregunta">
+      <End Role="OpcionPregunta" EntitySet="OpcionPregunta" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaServicios_OpcionPregunta" Association="Self.FK_PreguntaServicios_OpcionPregunta">
+      <End Role="OpcionPregunta" EntitySet="OpcionPregunta" />
+      <End Role="PreguntaServicios" EntitySet="PreguntaServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Periodo_Usuario" Association="Self.FK_Periodo_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Periodo" EntitySet="Periodo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_Periodo" Association="Self.FK_PreguntaDocente_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaServicios_Periodo" Association="Self.FK_PreguntaServicios_Periodo">
+      <End Role="Periodo" EntitySet="Periodo" />
+      <End Role="PreguntaServicios" EntitySet="PreguntaServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pregunta_Usuario" Association="Self.FK_Pregunta_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Pregunta" EntitySet="Pregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaDocente_Pregunta" Association="Self.FK_PreguntaDocente_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="PreguntaDocente" EntitySet="PreguntaDocente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PreguntaServicios_Pregunta" Association="Self.FK_PreguntaServicios_Pregunta">
+      <End Role="Pregunta" EntitySet="Pregunta" />
+      <End Role="PreguntaServicios" EntitySet="PreguntaServicios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

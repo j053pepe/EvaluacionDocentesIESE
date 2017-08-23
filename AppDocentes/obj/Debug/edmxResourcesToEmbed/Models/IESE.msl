@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IeseEncuestaModelStoreContainer" CdmEntityContainer="IESEEntities">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+          <ScalarProperty Name="Materno" ColumnName="Materno" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="EsSabatino" ColumnName="EsSabatino" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlumnoMateria">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.AlumnoMateria">
+        <MappingFragment StoreEntitySet="AlumnoMateria">
+          <ScalarProperty Name="AlumnoMateriaId" ColumnName="AlumnoMateriaId" />
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="MateriaId" ColumnName="MateriaId" />
+          <ScalarProperty Name="DocenteId" ColumnName="DocenteId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="FechaAlta" ColumnName="FechaAlta" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlumnoPrueba">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.AlumnoPrueba">
+        <MappingFragment StoreEntitySet="AlumnoPrueba">
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="FechaAplicacion" ColumnName="FechaAplicacion" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlumnoPruebaServicio">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.AlumnoPruebaServicio">
+        <MappingFragment StoreEntitySet="AlumnoPruebaServicio">
+          <ScalarProperty Name="AlumnoPruebaServicioId" ColumnName="AlumnoPruebaServicioId" />
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="ServicioId" ColumnName="ServicioId" />
+          <ScalarProperty Name="FechaAplicacion" ColumnName="FechaAplicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carrera">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Carrera">
+        <MappingFragment StoreEntitySet="Carrera">
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="TipoCarreraId" ColumnName="TipoCarreraId" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ClaveCategoria" ColumnName="ClaveCategoria" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComentarioDocente">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.ComentarioDocente">
+        <MappingFragment StoreEntitySet="ComentarioDocente">
+          <ScalarProperty Name="ComentarioDocenteId" ColumnName="ComentarioDocenteId" />
+          <ScalarProperty Name="ConfiguracionEncuestaId" ColumnName="ConfiguracionEncuestaId" />
+          <ScalarProperty Name="DocenteId" ColumnName="DocenteId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="MateriaId" ColumnName="MateriaId" />
+          <ScalarProperty Name="FechaAplicacion" ColumnName="FechaAplicacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="EsSabatino" ColumnName="EsSabatino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComentarioServicios">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.ComentarioServicios">
+        <MappingFragment StoreEntitySet="ComentarioServicios">
+          <ScalarProperty Name="ComentarioServicioId" ColumnName="ComentarioServicioId" />
+          <ScalarProperty Name="ConfiguracionEncuestaId" ColumnName="ConfiguracionEncuestaId" />
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="EsSabatino" ColumnName="EsSabatino" />
+          <ScalarProperty Name="FechaAplicacion" ColumnName="FechaAplicacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionEncuesta">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.ConfiguracionEncuesta">
+        <MappingFragment StoreEntitySet="ConfiguracionEncuesta">
+          <ScalarProperty Name="ConfiguracionEncuestaId" ColumnName="ConfiguracionEncuestaId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="TipoCarreraId" ColumnName="TipoCarreraId" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionPregunta">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.ConfiguracionPregunta">
+        <MappingFragment StoreEntitySet="ConfiguracionPregunta">
+          <ScalarProperty Name="PreguntaId" ColumnName="PreguntaId" />
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+          <ScalarProperty Name="TipoCarreraId" ColumnName="TipoCarreraId" />
+          <ScalarProperty Name="ClaveOpcionId" ColumnName="ClaveOpcionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Docente">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Docente">
+        <MappingFragment StoreEntitySet="Docente">
+          <ScalarProperty Name="DocenteId" ColumnName="DocenteId" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+          <ScalarProperty Name="Materno" ColumnName="Materno" />
+          <ScalarProperty Name="urlImagen" ColumnName="urlImagen" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocenteMateria">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.DocenteMateria">
+        <MappingFragment StoreEntitySet="DocenteMateria">
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="DocenteId" ColumnName="DocenteId" />
+          <ScalarProperty Name="MateriaId" ColumnName="MateriaId" />
+          <ScalarProperty Name="EsSabatino" ColumnName="EsSabatino" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encuesta">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Encuesta">
+        <MappingFragment StoreEntitySet="Encuesta">
+          <ScalarProperty Name="EncuestaId" ColumnName="EncuestaId" />
+          <ScalarProperty Name="ConfiguracionEncuestaId" ColumnName="ConfiguracionEncuestaId" />
+          <ScalarProperty Name="PreguntaId" ColumnName="PreguntaId" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+          <ScalarProperty Name="UsuarioModifico" ColumnName="UsuarioModifico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialAlumno">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.HistorialAlumno">
+        <MappingFragment StoreEntitySet="HistorialAlumno">
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="SemestreId" ColumnName="SemestreId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Materia">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="MateriaId" ColumnName="MateriaId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpcionPregunta">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.OpcionPregunta">
+        <MappingFragment StoreEntitySet="OpcionPregunta">
+          <ScalarProperty Name="OpcionPreguntaId" ColumnName="OpcionPreguntaId" />
+          <ScalarProperty Name="ClaveOpcionId" ColumnName="ClaveOpcionId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periodo">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Periodo">
+        <MappingFragment StoreEntitySet="Periodo">
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pregunta">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Pregunta">
+        <MappingFragment StoreEntitySet="Pregunta">
+          <ScalarProperty Name="PreguntaId" ColumnName="PreguntaId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreguntaDocente">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.PreguntaDocente">
+        <MappingFragment StoreEntitySet="PreguntaDocente">
+          <ScalarProperty Name="PreguntaDocenteId" ColumnName="PreguntaDocenteId" />
+          <ScalarProperty Name="ConfiguracionEncuestaId" ColumnName="ConfiguracionEncuestaId" />
+          <ScalarProperty Name="DocenteId" ColumnName="DocenteId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="MateriaId" ColumnName="MateriaId" />
+          <ScalarProperty Name="FechaAplicacion" ColumnName="FechaAplicacion" />
+          <ScalarProperty Name="PreguntaId" ColumnName="PreguntaId" />
+          <ScalarProperty Name="OpcionPreguntaId" ColumnName="OpcionPreguntaId" />
+          <ScalarProperty Name="EsSabatino" ColumnName="EsSabatino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PreguntaServicios">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.PreguntaServicios">
+        <MappingFragment StoreEntitySet="PreguntaServicios">
+          <ScalarProperty Name="PreguntaServiciosId" ColumnName="PreguntaServiciosId" />
+          <ScalarProperty Name="ConfiguracionEncuestaId" ColumnName="ConfiguracionEncuestaId" />
+          <ScalarProperty Name="CategoriaId" ColumnName="CategoriaId" />
+          <ScalarProperty Name="PeriodoId" ColumnName="PeriodoId" />
+          <ScalarProperty Name="CarreraId" ColumnName="CarreraId" />
+          <ScalarProperty Name="FechaAplicacion" ColumnName="FechaAplicacion" />
+          <ScalarProperty Name="PreguntaId" ColumnName="PreguntaId" />
+          <ScalarProperty Name="EsSabatino" ColumnName="EsSabatino" />
+          <ScalarProperty Name="OpcionPreguntaId" ColumnName="OpcionPreguntaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Semestre">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Semestre">
+        <MappingFragment StoreEntitySet="Semestre">
+          <ScalarProperty Name="SemestreId" ColumnName="SemestreId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCarrera">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.TipoCarrera">
+        <MappingFragment StoreEntitySet="TipoCarrera">
+          <ScalarProperty Name="TipoCarreraId" ColumnName="TipoCarreraId" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="IeseEncuestaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="Nick" ColumnName="Nick" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+          <ScalarProperty Name="Materno" ColumnName="Materno" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

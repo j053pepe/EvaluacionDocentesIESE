@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Perfil Alumno</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="shortcut icon" href="../Imagenes/logoiese2.ico" />
+    <link  href="../../Content/octicons.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Scripts/uniform/css/uniform.default.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap-select.min.css" rel="stylesheet" />
+    <link  href="../../Content/components.css" rel="stylesheet" />
+    <link  href="../../Content/layout.css" rel="stylesheet" />
+    <link  href="../../Content/Menu.css" rel="stylesheet" />
+    <link  href="../../Content/LoadPage.css" rel="stylesheet" />
+
+    <link href="../../Scripts/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" />
+    <link href="../../Scripts/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" />
+
+    <link  href="../../Content/alertify.css" rel="stylesheet" />
+</head>
+<body class="login  Fondo">
+
+    <div class="page-content, Transparente">
+        <div class="container">
+            <div class="page-title">
+                <img src="../../Imagenes/logoiese2.fw_.png" />
+            </div>
+            <br />
+        </div>
+        <div class="container" style="background-color: #013990!important; color: #FFFFFF;">
+            <div class="form-group col-md-12">
+                <hr />
+                <h3 id="lblNombre"></h3>
+                <hr />
+            </div>
+        </div>
+        <div class="container IeseRojoImage" id="MenuAlumno">
+
+        </div>
+
+        <div class="page-content Transparente">
+            <div class="container Sombra">
+                <form class="login-form" action="javascript:;" method="post" id="frmRegistro">
+                    <h3 class="form-title">Perfil</h3>
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        <span>
+                            Todos los campos son necesarios.
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                            <label class="control-label ">Numero de Control</label>
+                            <input class="form-control" type="text" autocomplete="off" readonly placeholder="Numero de control" name="UserName" id="txtUserName" />
+                        </div>
+                        <div class="form-group">
+                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                            <label class="control-label ">Nombre</label>
+                            <input class="form-control" type="text" autocomplete="off" readonly placeholder="Nombre" name="Nombre" id="txtNombre" />
+                        </div>
+                        <div class="form-group">
+                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                            <label class="control-label ">Apellido Paterno</label>
+                            <input class="form-control" type="text" autocomplete="off" readonly placeholder="Paterno" name="Paterno" id="txtPaterno" />
+                        </div>
+                        <div class="form-group">
+                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                            <label class="control-label ">Apellido Paterno</label>
+                            <input class="form-control" type="text" autocomplete="off" readonly placeholder="Materno" name="Materno" id="txtMaterno" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label ">Email</label>
+                            <input class="form-control" type="email" autocomplete="off" placeholder="Correo Electronico" id="txtEmail" name="txtEmail" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ">Telefono</label>
+                            <input class="form-control" type="tel" autocomplete="off" placeholder="Telefono" id="txtTelefono" name="txtTelefono" />
+                        </div>                    
+                        <div class="form-group">
+                            <label class="control-label ">Contraseña</label>
+                            <input class="form-control" type="password" autocomplete="off" placeholder="Contraseña" id="txtPass" name="txtPass" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label ">Repite tu Contraseña</label>
+                            <input class="form-control" type="password" autocomplete="off" placeholder="Contraseña" id="txtPassR" name="txtPassR" />
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                    </div>
+                    <div class="form-actions col-md-2">
+                        <button type="submit" class="btn btn-success uppercase" id="btnEntrar">Guardar</button>
+                        <!--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>-->
+                    </div>
+                </form>
+                <div class="col-md-12">
+                    <hr />
+                </div>
+            </div>
+        </div>
+        <!--Modal de Carga-->
+        <div class="modal fade col-md-12" tabindex="-1" data-backdrop="static" data-width="350" id="Load" data-keyboard="false">
+            <div class="modal-dialog modal-sm" style="background-color:white !important; align-content:center">
+                <!--<div class="modal-content" style="width:auto">-->
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-6" style="background-color:white !important; display:table-cell; vertical-align:middle; text-align:center; width:300px">
+                    <h3 id="hCarga">Cargando Datos</h3>
+                    <img src="../../Imagenes/LogoIESE.png" class="imgr" />
+                    <p id="txtBar"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin modal carga-->
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/uniform/jquery.uniform.js"></script>
+
+    <script src="../../Scripts/backstretch/jquery.backstretch.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.cokie.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.blockui.min.js"></script>
+
+    <script src="../../Scripts/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/localization/messages_es.js"></script>
+    
+    <script src="../../Scripts/Componentes/util.js"></script>
+    <script src="../../Scripts/alertify.js"></script>
+    <script src="../../Scripts/Componentes/dropdown.js"></script>
+
+    <script src="../Alumno/Perfil.js"></script>
+    <script src="../Alumno/Menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Registro Administrativo</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="shortcut icon" href="../Imagenes/logoiese2.ico" />
+    <link  href="../../Content/bootstrap-theme.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link  href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link  href="../../Content/login-soft.css" rel="stylesheet" />
+    <link href="../../Scripts/uniform/css/uniform.default.css" rel="stylesheet" />
+    <link  href="../../Content/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link  href="../../Content/layout.css" rel="stylesheet" />
+    <link  href="../../Content/Menu.css" rel="stylesheet" />
+    <link  href="../../Content/alertify.css" rel="stylesheet" />
+    
+</head>
+<body class="login" style="background: url(../Imagenes/IMG_4216.jpg); background-repeat: no-repeat; background-size: 100%">
+    <div id="Login">
+        <div class="logo">
+            <img src="../../Imagenes/logoiese2.fw_.png" />
+        </div>
+        <div class="content" style="background: rgba(0,0,0,.5); width:800px;">
+            <form class="login-form" action="javascript:;" method="post" id="frmRegistro">
+                <h3 class="form-title">Registro</h3>
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span>
+                        Todos los campos son necesarios.
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label ">Nombre de Usuario</label>
+
+                        <input class="form-control" type="text" autocomplete="off" placeholder="Escribe un NikName" name="UserName" id="txtUserName" />
+
+                    </div>
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label ">Nombre</label>
+
+                        <input class="form-control" type="text" autocomplete="off" placeholder="Nombre" name="Nombre" id="txtNombre" />
+
+                    </div>
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label ">Apellido Paterno</label>
+
+                        <input class="form-control" type="text" autocomplete="off" placeholder="Paterno" name="Paterno" id="txtPaterno" />
+
+                    </div>
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label ">Apellido Paterno</label>
+
+                        <input class="form-control" type="text" autocomplete="off" placeholder="Materno" name="Materno" id="txtMaterno" />
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label ">Correo Electronico</label>
+
+                        <input class="form-control" type="email" autocomplete="off" placeholder="Email" name="Email" id="txtEmail" />
+
+                    </div>
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label ">Telefono</label> 
+                        <input class="form-control" type="tel" autocomplete="off" placeholder="Telefono" name="Telefono" id="txtTelefono" />
+
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">Contraseña</label>
+
+                        <input class="form-control" type="password" autocomplete="off" placeholder="Contraseña" id="txtPass" name="txtPass" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label ">Repite tu Contraseña</label>
+                        <input class="form-control" type="password" autocomplete="off" placeholder="Contraseña" id="txtPassR" name="txtPassR" />
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <hr />
+                    <button type="submit" class="btn btn-success uppercase" id="btnEntrar">Registrar</button>
+                    <!--<a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>-->
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+    <script src="../../Scripts/uniform/jquery.uniform.js"></script>
+    <script src="../../Scripts/backstretch/jquery.cokie.min.js"></script>
+    <script src="../../Scripts/backstretch/jquery.blockui.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="../../Scripts/jquery-validation/js/localization/messages_es.js"></script>
+    <script src="../Administrativo/Registro.js"></script>
+    <script src="../../Scripts/alertify.js"></script>
+</body>
+</html>

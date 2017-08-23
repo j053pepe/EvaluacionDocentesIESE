@@ -1,0 +1,117 @@
+﻿a.Menu1:hover {
+    color: white !important;
+    background-color: black;
+}
+
+body.Fondo {
+    background: url(../Imagenes/IMG_4216.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+div.FondoIESE {
+    background-image: url(../Imagenes/IMG_4216.jpg);
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: center !important;
+    height: 120px !important;
+    width: 20% !important;
+}
+
+div.Transparente {
+    background-color: transparent !important;
+}
+
+li.Active2 {
+    color: #fff;
+    background-color: black;
+}
+
+span.msgError {
+    background-color: #f2dede !important;
+    border-color: #ebccd1 !important;
+    color: #a94442 !important;
+}
+
+.colorBlack {
+    color: black !important;
+}
+
+.Sombra {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
+    background-color: white;
+}
+
+.IeseRojo {
+    background-color: #B42036 !important;
+}
+
+.IeseRojoImage {
+    background-image: linear-gradient(to bottom,#B42036 0,#B42036 100%);    
+}
+    .IeseRojoImage .navbar {
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .IeseRojoImage .nav .nav-item .nav-link {
+        color: white;
+    }
+
+    .IeseRojoImage .nav .nav-item:active {
+        color: white !important;
+        background-color: black;
+    }
+
+    .IeseRojoImage .nav .nav-item:hover .dropdown-menu {
+        color: white !important;
+        background-color: black;
+        display: block;
+    }
+
+.dropdown-menu {
+    background-color: #B42036 !important
+}
+
+    .dropdown-menu .dropdown-item {
+        background-color: #B42036 !important;
+        color: white;
+    }
+
+        .dropdown-menu .dropdown-item:hover {
+            background-color: white !important;
+            color: black !important;
+        }
+
+    .dropdown-menu .inner {
+        color: black;
+        background-color: white !important;
+    }
+
+.bs-searchbox {
+    background-color: white;
+}
+
+.mobileNav {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .mobileNav {
+        position: absolute;
+        right: 80px !important;
+        top: 0px;
+        width: 195px;
+        text-align: right;
+    }
+
+    .navbar-nav .open .dropdown-menu {
+        text-align: right;
+        border: 1px solid #efefef;
+        margin-top: 2px;
+    }
+}
+.text-white {
+    color: white !important;
+}

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" lang="es-mx">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Login Administrativo</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="shortcut icon" href="../Imagenes/logoiese2.ico" />
+    <link  href="../Content/bootstrap-theme.css" rel="stylesheet" />
+    <link  href="../Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link  href="../Content/bootstrap.css" rel="stylesheet" />
+    <link  href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link  href="../Content/login-soft.css" rel="stylesheet" />
+    <link href="../Scripts/uniform/css/uniform.default.css" rel="stylesheet" />
+    <link  href="../Content/components.css" rel="stylesheet" />
+
+    <link  href="../Content/alertify.css" rel="stylesheet" />
+    <link  href="../Content/themes/semantic.css" rel="stylesheet" />
+
+    <link  href="../Content/layout.css" rel="stylesheet" />
+    <link  href="../Content/LoadPage.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--//Fondo-->
+    <div id="divFondo" class="backstretch">
+        <img class="Efectoimg" src="../Imagenes/IMG_4216.jpg">
+    </div>
+    <div class="body login Transparente" style="background-color:transparent !important">
+        <div id="Login Transparente">
+            <div class="logo">
+                <img src="../Imagenes/logoiese2.fw_.png" />
+                <hr />
+                <h3>Sistema de Evaluación de Docentes (SED)</h3>
+            </div>
+            <div class="content Transparente" style="background: rgba(0,0,0,.5);">
+                <form class="login-form" action="javascript:;" method="post">
+                    <h3 class="form-title">Login</h3>
+                    <div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        <span>
+                            Nombre de Usuario o Contraseña Incorrecta.
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                        <label class="control-label visible-ie8 visible-ie9">Nombre de Usuario</label>
+                        <input class="form-control" type="text" autocomplete="off" id="txtusername" placeholder="NikcName" name="txtusername" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label visible-ie8 visible-ie9">Contraseña</label>
+                        <input class="form-control" type="password" id="txtPass" autocomplete="off" placeholder="Contraseña" name="password" />
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success uppercase" id="btnEntrar">Entrar</button>
+                        <!--<a href="../javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="FondoIESE">
+        </div>        
+    </div>
+    <!--Modal de carga-->
+    <div class="modal fade" tabindex="-1" id="Load" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="hCarga"
+         aria-hidden="true">
+        <div class="modal-dialog modal-sm" style="align-content:center; background-color:white" role="document">
+            <div class="modal-body bg-faded">
+                <div class="bg-faded">
+                    <h3 id="hCarga" class="modal-title" style="text-align:center">Cargando Datos</h3>
+                    <div class="text-center">
+                        <img src="../Imagenes/LogoIESE.png" class="imgr rounded mx-auto d-block" />
+                        <p id="txtBar"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/backstretch/jquery.backstretch.min.js"></script>
+    <script src="../Scripts/uniform/jquery.uniform.js"></script>
+    <script src="../Scripts/backstretch/jquery.cokie.min.js"></script>
+    <script src="../Scripts/backstretch/jquery.blockui.min.js"></script>
+    <script src="../Scripts/alertify.js"></script>
+    <script src="../Administrador/Administrativo/Login.js"></script>
+</body>
+
+</html>
