@@ -42,8 +42,10 @@
                             var ele2 = this.localName;
                             if (ele2 === 'a') {
                                 ele2 = this.getAttribute("href");
-                                if (ele2.includes(url)) {
-                                    ActiLi = l.nextSibling;
+                                if (ele2 !== null) {
+                                    if (ele2.includes(url)) {
+                                        ActiLi = l.nextSibling;
+                                    }
                                 }
                             }
                         });

@@ -93,7 +93,7 @@
                 <a href="../Usuario/Perfil.html" class="nav-link">&nbsp;&nbsp;<span class="octicon octicon-shield"></span>&nbsp;Perfil &nbsp;&nbsp;</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link" id="btnSalir"><span class="octicon octicon-x"></span> Salir &nbsp;&nbsp;</a>
+                <a class="nav-link" id="btnSalir"><span class="octicon octicon-x"></span> Salir &nbsp;&nbsp;</a>
             </li>
         </ul>
     </div>
@@ -101,6 +101,6 @@
 <script type="text/javascript">
     $('#btnSalir').on('click', function () {
         sessionStorage.clear();
-        window.open = "../../Index.html", "_parent";
+        window.open("../Index.html", "_parent");
   });
 </script>

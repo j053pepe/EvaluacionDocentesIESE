@@ -174,7 +174,7 @@
                 {
                     "mDataProp": "DocenteId",
                     "mRender": function (data) {
-                        return "<a href='' class='btn bg-success' onclick='return false;'>" + "Editar Docente" + " </a> ";
+                        return "<a href='' class='btn btn-success' onclick='return false;'>" + "Editar Docente" + " </a> ";
                     }
                 },
             ],
